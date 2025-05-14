@@ -11,5 +11,5 @@ hero:
       link: http://8.134.38.38/soup-doc/
     - theme: alt
       text: github部署（ci配置）
-      link:
+      link: https://huangsitingst.github.io/doc/
 ---
