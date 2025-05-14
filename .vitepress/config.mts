@@ -5,7 +5,7 @@ console.log(1212, process.env.NODE_ENV);
 
 export default defineConfig({
   // base: getBaseURL(),
-  base: process.env.NODE_ENV === 'production' ? '/soup-doc/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/doc/' : '/',
   title: "个人学习阅读文档",
   description: "A VitePress Site21",
   themeConfig: {
