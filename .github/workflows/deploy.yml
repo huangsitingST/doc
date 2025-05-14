@@ -4,6 +4,11 @@ on:
   push:
     branches: [main] # 或 master，取决于你的主分支名称
 
+permissions:
+  contents: write  # 允许写入内容（推送到gh-pages分支）
+  pages: write     # 允许GitHub Pages写入
+  id-token: write  # 允许OIDC令牌写入
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
