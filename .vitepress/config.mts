@@ -12,15 +12,15 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "README", link: "/doc/README.md" },
-      { text: "文档", link: "/doc/6工程化/3-nginx/Nginx-上" },
+      { text: "文档", link: "/doc/6工程化/3-nginx/Nginx-上.md" },
     ],
 
     sidebar: [
       {
         text: "基建学习",
         items: [
-          { text: "Nginx-上", link: "/doc/6工程化/3-nginx/Nginx-上" },
-          { text: "Nginx-下", link: "/doc/6工程化/3-nginx/Nginx-下" },
+          { text: "Nginx-上", link: "/doc/6工程化/3-nginx/Nginx-上.md" },
+          { text: "Nginx-下", link: "/doc/6工程化/3-nginx/Nginx-下.md" },
         ],
       },
     ],
@@ -47,6 +47,6 @@ export default defineConfig({
      '**/2框架/**',
      '**/4项目业务/**',
      '**/5计算机网络/**',
-     '**/6工程化/**',
+     '**/6工程化/0-docker/**',
   ],
 });
