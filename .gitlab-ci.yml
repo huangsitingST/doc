@@ -1,0 +1,20 @@
+variables:
+  CI_VERIFY_IDENTITY: "false"
+
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  stage: deploy
+  script:
+    - npm install
+    - npm run build
+    - mv /.vitepress/dist public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

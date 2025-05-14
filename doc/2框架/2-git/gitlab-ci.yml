@@ -1,0 +1,138 @@
+default:
+  image: registry.gitlab.dreamdev.cn/infrastructure/build/node:18.20-slim
+
+stages:
+  - build
+  - upload
+  - image
+  - deploy
+
+variables:
+  TEST_NAMESPACE: ebag-test
+  PROD_NAMESPACE: ebag-prod
+  DEPLOY_NAME_TEST: ai-learn-pc-web
+  DEPLOY_NAME_PROD: ai-learn-pc-web
+  KUBECTL_IMAGE: registry.gitlab.dreamdev.cn/docker/build/kubectl:v1.14.1-3
+  GIT_DEPTH: 1
+
+# 测试
+build-test:
+  stage: build
+  variables:
+    DREAMENV: TEST
+  cache:
+    key: $CI_PROJECT_ID-$CI_PROJECT_NAME
+    paths:
+      - .npm/
+  before_script:
+    - echo "$NPMRC" > ~/.npmrc
+  script:
+    - npm ci --omit=optional --cache .npm --prefer-offline --audit=false
+    - npm run build
+  artifacts:
+    expire_in: 3 days
+    paths:
+      - dist
+  rules:
+    - if: $CI_COMMIT_REF_NAME == 'test'
+
+upload-test:
+  stage: upload
+  variables:
+    DREAMENV: TEST
+  script:
+    - node ./tools/generate.config.cjs
+    - qshell='./tools/qshell-linux-x64'
+    - chmod a+x "${qshell}"
+    - ${qshell} account "${QINIU_AK}" "${QINIU_SK}"
+    - ${qshell} qupload 8 ./qiniuconfig
+  rules:
+    - if: $CI_COMMIT_REF_NAME == 'test'
+
+image-test:
+  stage: image
+  image: $DOCKER_IMAGE
+  variables:
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHA-$CI_PIPELINE_IID
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --build-arg NGINX_IMAGE=$NGINX_IMAGE -t $IMAGE_NAME -f docker/Dockerfile .
+    - docker push $IMAGE_NAME
+  rules:
+    - if: $CI_COMMIT_REF_NAME == 'test'
+
+deploy-test:
+  stage: deploy
+  variables:
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHA-$CI_PIPELINE_IID
+    GIT_STRATEGY: none
+  image: $KUBECTL_IMAGE
+  script:
+    - mkdir -p ~/.kube
+    - echo "$TEST_KUBERNETES_CONFIG" > ~/.kube/config
+    - echo "$TEST_KUBERNETES_CA" > ~/.kube/ca.crt
+    - kubectl -n $TEST_NAMESPACE set image deployment/$DEPLOY_NAME_TEST $DEPLOY_NAME_TEST=$IMAGE_NAME
+  dependencies: []
+  rules:
+    - if: $CI_COMMIT_REF_NAME == 'test'
+
+# 正式
+build-prod:
+  stage: build
+  variables:
+    DREAMENV: PROD
+  cache:
+    key: $CI_PROJECT_ID-$CI_PROJECT_NAME
+    paths:
+      - .npm/
+  before_script:
+    - echo "$NPMRC" > ~/.npmrc
+  script:
+    - npm ci --omit=optional --cache .npm --prefer-offline --audit=false
+    - npm run build:prod
+  artifacts:
+    expire_in: 3 days
+    paths:
+      - dist
+  rules:
+    - if: $CI_COMMIT_TAG
+
+upload-prod:
+  stage: upload
+  variables:
+    DREAMENV: PROD
+  script:
+    - node ./tools/generate.config.cjs
+    - qshell='./tools/qshell-linux-x64'
+    - chmod a+x "${qshell}"
+    - ${qshell} account "${QINIU_AK}" "${QINIU_SK}"
+    - ${qshell} qupload 8 ./qiniuconfig
+  rules:
+    - if: $CI_COMMIT_TAG
+
+image-prod:
+  stage: image
+  image: $DOCKER_IMAGE
+  variables:
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_TAG-$CI_PIPELINE_IID
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --build-arg NGINX_IMAGE=$NGINX_IMAGE -t $IMAGE_NAME -f docker/Dockerfile .
+    - docker push $IMAGE_NAME
+  rules:
+    - if: $CI_COMMIT_TAG
+
+deploy-prod:
+  stage: deploy
+  variables:
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_TAG-$CI_PIPELINE_IID
+    GIT_STRATEGY: none
+  image: $KUBECTL_IMAGE
+  script:
+    - mkdir -p ~/.kube
+    - echo "$PROD_KUBERNETES_CONFIG" > ~/.kube/config
+    - echo "$PROD_KUBERNETES_CA" > ~/.kube/ca.crt
+    - kubectl -n $PROD_NAMESPACE set image deployment/$DEPLOY_NAME_PROD $DEPLOY_NAME_PROD=$IMAGE_NAME
+  dependencies: []
+  rules:
+    - if: $CI_COMMIT_TAG
