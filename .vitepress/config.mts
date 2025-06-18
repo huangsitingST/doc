@@ -23,15 +23,15 @@ export default defineConfig({
           { text: "Nginx-上", link: "/doc/6工程化/3-nginx/Nginx-上.md" },
           { text: "Nginx-下", link: "/doc/6工程化/3-nginx/Nginx-下.md" },
 
-          // {
-          //   text: "部署一套gitlab实现ci流水线",
-          //   link: "/doc/2框架/2-git/部署一套gitlab实现ci流水线.md",
-          // },
+          {
+            text: "部署一套gitlab实现ci流水线",
+            link: "/doc/2框架/2-git/部署一套gitlab实现ci流水线.md",
+          },
 
-          // {
-          //   text: "git",
-          //   link: "/doc/2框架/2-git/git.md",
-          // },
+          {
+            text: "git",
+            link: "/doc/2框架/2-git/git.md",
+          },
           // {
           //   text: "docker",
           //   link: "/doc/6工程化/0-docker/Docker.md",
@@ -40,10 +40,10 @@ export default defineConfig({
           //   text: "CICD",
           //   link: "/doc/6工程化/1-cicd/CICD.md",
           // },
-          // {
-          //   text: "node",
-          //   link: "/doc/6工程化/4-node/node.md",
-          // },
+          {
+            text: "node",
+            link: "/doc/6工程化/4-node/node.md",
+          },
           // {
           //   text: "cdn",            link: "/doc/6工程化/6-cdn/CDN.md",
           // },
@@ -108,7 +108,7 @@ export default defineConfig({
     // "vite/",
 
     // "项目总结/",
-    // "**/2框架/**", 
+    // "**/2框架/**",
     // "**/4项目业务/**",
     "**/5计算机网络/**",
     "**/项目集.md",
