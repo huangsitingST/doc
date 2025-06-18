@@ -67,17 +67,17 @@ export default defineConfig({
       //     },
       //   ],
       // },
-      // {
-      //   text: "项目总结",
-      //   items: [
-      //     { text: "爱学网app", link: "/doc/4项目业务/0-项目点/爱学网app.md" },
-      //     {
-      //       text: "开发中遇到的问题",
-      //       link: "/doc/4项目业务/1-技术点/开发中遇到的问题.md",
-      //     },
-      //     { text: "micro-app", link: "/doc/4项目业务/2-项目学习/micro-app.md" },
-      //   ],
-      // },
+      {
+        text: "项目总结",
+        items: [
+          { text: "爱学网app", link: "/doc/4项目业务/0-项目点/爱学网app.md" },
+          {
+            text: "开发中遇到的问题",
+            link: "/doc/4项目业务/1-技术点/开发中遇到的问题.md",
+          },
+          { text: "micro-app", link: "/doc/4项目业务/2-项目学习/micro-app.md" },
+        ],
+      },
       {
         text: "基础",
         items: [
