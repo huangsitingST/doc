@@ -179,7 +179,6 @@ refresh_token：长效token
 
 认证中心就是这个/v1/oauth2/authorize，如果请求中携带的cookie是合法的，那么就会返回code给业务网站，网站就可以拿这个code去获取login获取用户信息
 
-![image-20250415212853438](../../../doc/images/image-20250415212853438.png)
 
 ![image-20250415222145114](../../../doc/images/image-20250415222145114.png)
 
