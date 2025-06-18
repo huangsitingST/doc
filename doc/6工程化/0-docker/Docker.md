@@ -249,7 +249,7 @@ ram用户登陆阿里云控制台
 
 直接在阿里云镜像仓库中拉取需要的镜像，项目配置中直接指向这个镜像
 
-![企业微信截图_d9976525-0cff-4d54-a006-72cf179b3e8b](/Users/soup/Library/Containers/com.tencent.WeWorkMac/Data/Documents/Profiles/D94AE1DB4AB88E28EA4F6C889814E92F/Caches/Images/1970-1/5306a796c09f6a6b180c40bdf9e43d01_HD/企业微信截图_d9976525-0cff-4d54-a006-72cf179b3e8b.png)
+![企业微信截图_d9976525-0cff-4d54-a006-72cf179b3e8b](../../images/1970-1/5306a796c09f6a6b180c40bdf9e43d01_HD/企业微信截图_d9976525-0cff-4d54-a006-72cf179b3e8b.png)
 
 - gitlab仓库镜像库
 
