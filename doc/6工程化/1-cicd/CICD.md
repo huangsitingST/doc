@@ -134,6 +134,8 @@ https://rbebag-zy-test.strongwind.cn/ai-learn-pc/2025219/index.html
 3. 自动部署：ci+gitlab+生成镜像
 4. ci的deploy阶段让阿里云去拉取镜像部署
 
+![image-20250515112952259](./assets/image-20250515112952259.png)
+
 ## 3、SSH
 
 连接远程服务器有两种协议：https和ssh

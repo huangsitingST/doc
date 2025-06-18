@@ -37,7 +37,7 @@ npm i -D babel-loader @babel/core @babel/preset-env
 
 同理，转的依赖就是将vue文件转成浏览器认识的样子：结合html、js、css、打包，全部都是开发时依赖，打包完后的dist文件就是浏览器可以识别的合成文件
 
-![image-20250225103555106](../images/image-20250225103555106.png)
+![image-20250225103555106](../../images/image-20250225103555106.png)
 
 ## 4、脚手架
 

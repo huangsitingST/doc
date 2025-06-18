@@ -14,6 +14,8 @@
 
 ## 1 上传图片的方式：拓展-文件上传的方式
 
+aliyun上传、七牛云上传
+
 ## 2 图片框题&识别图片的题目
 
 使用阿里云集成的openai：https://apifox.com/apidoc/shared-2fd72ae0-84f1-4e2e-b210-8b204151d970
@@ -21,6 +23,69 @@
 ## 4 会话：指令id
 
 ## 5 与安卓通信
+
+使用js-bridge，核心是，应用端和h5端都把属性或者方法放在window下，两个端使用不同的方法去调用
+
+应用端使用flutter，可以实现多端打包，虽然这么说，但是如果出现了不兼容的现象，其实也是应用端去做一个兼容解决
+
+就像uniapp一样，也说是前端可以打包成h5、小程序、安卓、ios应用，但是有些兼容问题出现也需要通过代码和配置兼容
+
+- h5调用native原生
+
+  应用端
+
+  ```js
+  // 注入对象，应用端实际上是在window中存放应用端的对象，里面包含属性和方法供h5端调用
+  webView.addJavascriptInterface(new JsBridge(), "JSBridge");
+  // 定义注入的Jsbridge对象
+  class JsBridge {  
+      @JavascriptInterface
+      fun takePhoto(callbackId: String) {
+          // 调用相机并返回结果
+      }
+  }
+  ```
+
+  h5调用
+
+  ```js
+  window.JSBridge.takePhoto('callback_123')
+  ```
+
+- native调用h5
+
+  ```js
+  // Android获取H5页面标题
+  webView.evaluateJavascript("javascript:document.title", value -> {
+      String title = value.replace("\"", ""); // 去除JSON引号
+  });
+  ```
+
+  两种
+
+  1. 应用端监听到h5页面加载完毕后，可以执行
+
+     ```js
+     String json = "{'key': 'value'}".replace("'", "\\'");
+     webView.loadUrl("javascript:parseJson('" + json + "')");
+     ```
+
+  2. 判断构建的版本看是否支持evaluateJavascript方式
+
+     ```js
+     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+         webView.evaluateJavascript("javascript:getResult()", new ValueCallback<String>() {
+             @Override
+             public void onReceiveValue(String value) {
+                 // 处理 JS 返回的值（如 JSON 字符串）
+             }
+         });
+     } else {
+         webView.loadUrl("javascript:getResult()"); // 低版本降级方案
+     }
+     ```
+
+     
 
 ## 6 鉴权方式
 
@@ -50,9 +115,9 @@ jwt由三个部分构成：header.playload.signature
 
 ​					算法     数据	服务端保存的一段字符串
 
-<img src="/Users/soup/Documents/2025年工作包/images/image-20250415085934261.png" alt="image-20250415085934261" style="zoom: 24%;" />
+<img src="../../images/image-20250415085934261.png" alt="image-20250415085934261" style="zoom: 24%;" />
 
-<img src="/Users/soup/Documents/2025年工作包/images/image-20250415090046160.png" alt="image-20250415090046160" style="zoom:30%;" />
+<img src="../../images/image-20250415090046160.png" alt="image-20250415090046160" style="zoom:30%;" />
 
 公司的jwt例子：
 
@@ -61,13 +126,13 @@ access_token:
 "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiIxNjgxNzgwMjU3MTE1IiwiZXhwIjoxNzQ0NjY5NjA5LCJzdWIiOiIzMDkwNjUxODMxOTQ5Mzk1In0.oSHxncyj42ISGWweeT6COnaq4jUwtxVvNQPT26IIdax8fZFHZx90YJy8gveH-NwX-HhOj2j62iztwjpqgSDkIw"
 ```
 
-<img src="/Users/soup/Documents/2025年工作包/images/image-20250415092251334.png" alt="image-20250415092251334" style="zoom:67%;" />
+<img src="../../images/image-20250415092251334.png" alt="image-20250415092251334" style="zoom:67%;" />
 
 #### 2、例子：爱学网的登录例子
 
-![image-20250415103212705](/Users/soup/Documents/2025年工作包/images/image-20250415103212705.png)
+![image-20250415103212705](../../images/image-20250415103212705.png)
 
-![image-20250415103403641](/Users/soup/Documents/2025年工作包/images/image-20250415103403641.png)
+![image-20250415103403641](../../images/image-20250415103403641.png)
 
 公司全部的token用的是sessionid做token，问了后端，这个token不做过期时间限制。
 
@@ -96,7 +161,7 @@ expires_in：过期时间2h
 
 refresh_token：长效token
 
-![image-20250415113510092](/Users/soup/Documents/2025年工作包/images/image-20250415113510092.png)
+![image-20250415113510092](../../images/image-20250415113510092.png)
 
 总结：在响应拦截中处理401未认证，使用refresh_token再去请求，如果未过期则可以更新access_token和refresh_token，如果refresh_token都过期了，则可以重新登录
 
@@ -114,9 +179,9 @@ refresh_token：长效token
 
 认证中心就是这个/v1/oauth2/authorize，如果请求中携带的cookie是合法的，那么就会返回code给业务网站，网站就可以拿这个code去获取login获取用户信息
 
+![image-20250415212853438](../../../doc/images/image-20250415212853438.png)
 
-
-![image-20250415212853438](/Users/soup/Documents/2025年工作包/images/image-20250415212853438.png)![image-20250415222145114](/Users/soup/Documents/2025年工作包/images/image-20250415222145114.png)
+![image-20250415222145114](../../../doc/images/image-20250415222145114.png)
 
 分析下登录接口
 
@@ -129,7 +194,7 @@ F_from: 600000
 userType: 2
 ```
 
-![image-20250415213532702](/Users/soup/Documents/2025年工作包/images/image-20250415213532702.png)
+![image-20250415213532702](../../images/image-20250415213532702.png)
 
 返回的数据中的sessionid是整个公司通用的token，account_token是与第三方协作的token数据
 
@@ -153,9 +218,9 @@ response_type=code
 
 - 没有cookie，返回：{"code":100400,"data":{},"msg":"无效请求"}
 - 登出/过期的cookie：重定向到单点登录页面
-- 合法的token：重定向到redirect_uri，且返回需要的response_type![image-20250415222616124](/Users/soup/Documents/2025年工作包/images/image-20250415222616124.png)
+- 合法的token：重定向到redirect_uri，且返回需要的response_type![image-20250415222616124](../../images/image-20250415222616124.png)
 
-尝试：使用apifox调用认证中心的接口，使用登出的cookie去调上面的接口，是成功的<img src="/Users/soup/Documents/2025年工作包/images/image-20250416094551632.png" alt="image-20250416094551632" style="zoom:70%;" />
+尝试：使用apifox调用认证中心的接口，使用登出的cookie去调上面的接口，是成功的<img src="../../images/image-20250416094551632.png" alt="image-20250416094551632" style="zoom:70%;" />
 
 #### 5、OAuth2协议标准
 
@@ -202,7 +267,7 @@ response_type=code
     scope=read
   ```
 
-  ![image-20250416143004338](/Users/soup/Documents/2025年工作包/images/image-20250416143004338.png)
+  ![image-20250416143004338](../../images/image-20250416143004338.png)
 
 - 凭证式
 
@@ -239,7 +304,7 @@ F_from: 600000
 
 返回的数据是一样的
 
-![image-20250416110256391](/Users/soup/Documents/2025年工作包/images/image-20250416110256391.png)
+![image-20250416110256391](../../images/image-20250416110256391.png)
 
 ##### 5.4 更新令牌
 
@@ -247,7 +312,7 @@ access_token和refresh_token结合过期时间去更新令牌，使用refresh_to
 
 ##### 5.5 思考：如果用户的登录时间还没有过期，去认证中心应该是不用重新登录的，这个是怎么实现的？
 
-正常来说，是需要带access_token去访问的，但是公司的认证不携带这个中台token，以及，中台的其他接口都没有做鉴权操作。<img src="/Users/soup/Documents/2025年工作包/images/image-20250416112831390.png" alt="image-20250416112831390" style="zoom:70%;" />
+正常来说，是需要带access_token去访问的，但是公司的认证不携带这个中台token，以及，中台的其他接口都没有做鉴权操作。<img src="../../images/image-20250416112831390.png" alt="image-20250416112831390" style="zoom:70%;" />
 
 
 

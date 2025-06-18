@@ -4,7 +4,7 @@
 
 ## 一、工作流程
 
-![image-20250422093404456](/Users/soup/Documents/2025年工作包/images/image-20250422093404456.png)
+![image-20250422093404456](../../images/image-20250422093404456.png)
 
 Untracked: git不知道的文件
 
@@ -24,11 +24,11 @@ git config user.name --global '***'
 git config --list --global
 ```
 
-![image-20250422105622926](/Users/soup/Documents/2025年工作包/images/image-20250422105622926.png)
+![image-20250422105622926](../../images/image-20250422105622926.png)
 
 ​	本地配置的这个只是在push代码会带上的用户数据，标记是什么人提交的而已
 
-![image-20250422105753229](/Users/soup/Documents/2025年工作包/images/image-20250422105753229.png)
+![image-20250422105753229](../../images/image-20250422105753229.png)
 
 ### 2、链接远程仓库的两种··协议··
 
@@ -40,13 +40,13 @@ git config --list --global
 
   用户名+person_access_token
 
-  ![image-20250422142056362](/Users/soup/Documents/2025年工作包/images/image-20250422142056362.png)
+  ![image-20250422142056362](../../images/image-20250422142056362.png)
 
   第一次去推送代码需要设置用户名+token
 
   通过钥匙串访问app可以查到本地存储
 
-  ![image-20250422162707212](/Users/soup/Documents/2025年工作包/images/image-20250422162707212.png)
+  ![image-20250422162707212](../../images/image-20250422162707212.png)
 
 - ssh协议
 
@@ -56,21 +56,21 @@ git config --list --global
 
 网络安全相关
 
-![image-20250422112723339](/Users/soup/Documents/2025年工作包/images/image-20250422112723339.png)
+![image-20250422112723339](../../images/image-20250422112723339.png)
 
-![image-20250422172448560](/Users/soup/Documents/2025年工作包/images/image-20250422172448560.png)
+![image-20250422172448560](../../images/image-20250422172448560.png)
 
 自己的轻量级服务器，通过22端口去连接服务器
 
 配置80端口，设置nginx去访问文件
 
-![image-20250422174809575](/Users/soup/Documents/2025年工作包/images/image-20250422174809575.png)
+![image-20250422174809575](../../images/image-20250422174809575.png)
 
 #### 2.3 实操关联的git的操作
 
 切换链接源
 
-![image-20250422142753060](/Users/soup/Documents/2025年工作包/images/image-20250422142753060.png)
+![image-20250422142753060](../../images/image-20250422142753060.png)
 
 这两个分别是两种连接的地址，如果需要切换连接方式，就是设置远程仓库地址
 
@@ -82,17 +82,17 @@ git remote set-url origin **
 // 设置远程地址
 ```
 
-![image-20250422144145072](/Users/soup/Documents/2025年工作包/images/image-20250422144145072.png)
+![image-20250422144145072](../../images/image-20250422144145072.png)
 
 当前公司只支持https形式，我切换到ssh源，去push，报这个错，ssh默认是22端口号
 
-![image-20250422144233514](/Users/soup/Documents/2025年工作包/images/image-20250422144233514.png)
+![image-20250422144233514](../../images/image-20250422144233514.png)
 
 切换回https源，成功
 
-![image-20250422144452521](/Users/soup/Documents/2025年工作包/images/image-20250422144452521.png)
+![image-20250422144452521](../../images/image-20250422144452521.png)
 
-![image-20250422162208336](/Users/soup/Documents/2025年工作包/images/image-20250422162208336.png)
+![image-20250422162208336](../../images/image-20250422162208336.png)
 
 #### 2.4    ssh常见错误
 
@@ -106,15 +106,15 @@ git remote set-url origin **
 
 ##### 法一：撤销本地仓库代码到暂存区，拉代码，解决冲突，再提交
 
-- git log：查看本地仓库的历史记录![image-20250422223238251](/Users/soup/Documents/2025年工作包/images/image-20250422223238251.png)
+- git log：查看本地仓库的历史记录![image-20250422223238251](../../images/image-20250422223238251.png)
 
 - git show [commit-hash]
 
-  ![image-20250422223448879](/Users/soup/Documents/2025年工作包/images/image-20250422223448879.png)
+  ![image-20250422223448879](../../images/image-20250422223448879.png)
 
 - git reset HEAD~1  撤销本地仓库的提交且取消暂存
 
-  ![image-20250422223813592](/Users/soup/Documents/2025年工作包/images/image-20250422223813592.png)
+  ![image-20250422223813592](../../images/image-20250422223813592.png)
 
   HEAD～1：最近的一次提交
 
@@ -128,11 +128,13 @@ git remote set-url origin **
 
 - git pull 拉取最新代码解决冲突再提交
 
-##### 法二：强推，没有什么暴力解决不了的，但是得保证改的代码不会跟别人冲突，否则流水线失败
+##### 法二：强推，没有什么暴力解决不了的，但是得保证改的代码不会跟别人冲突，否则流水线失败；
+
+还需要看下这个分支是不是受保护的，如果gitlab中设置限制不能强推覆盖也会失败。
 
 git push origin 分支名 --force
 
-![image-20250422225536075](/Users/soup/Documents/2025年工作包/images/image-20250422225536075.png)
+![image-20250422225536075](../../images/image-20250422225536075.png)
 
 ##### 法三：撤销这个提交
 
@@ -140,9 +142,9 @@ git revert [commit-id]
 
 撤销某个提交，并生成新的提交
 
-![image-20250423093413414](/Users/soup/Documents/2025年工作包/images/image-20250423093413414.png)
+![image-20250423093413414](../../images/image-20250423093413414.png)
 
-![image-20250423093553742](/Users/soup/Documents/2025年工作包/images/image-20250423093553742.png)
+![image-20250423093553742](../../images/image-20250423093553742.png)
 
 
 
@@ -154,15 +156,15 @@ git revert [commit-id]
 
 以爱学网项目为例
 
-![image-20250423143501658](/Users/soup/Documents/2025年工作包/images/image-20250423143501658.png)
+![image-20250423143501658](../../images/image-20250423143501658.png)
 
 ##### 1、refs
 
-![image-20250423143914942](/Users/soup/Documents/2025年工作包/images/image-20250423143914942.png)
+![image-20250423143914942](../../images/image-20250423143914942.png)
 
 ##### 2、config
 
-![image-20250423144325617](/Users/soup/Documents/2025年工作包/images/image-20250423144325617.png)
+![image-20250423144325617](../../images/image-20250423144325617.png)
 
 存储仓库级配置信息，如用户信息、远程仓库 URL、别名等，优先级高于全局配置
 
@@ -170,7 +172,7 @@ git revert [commit-id]
 
 在特定的git操作发生时**自动触发自定义脚本**，从而实现自动化任务或流程控制，在.git/hooks目录下
 
-<img src="/Users/soup/Documents/2025年工作包/images/image-20250423141940832.png" alt="image-20250423141940832" style="zoom:50%;" />
+<img src="../../images/image-20250423141940832.png" alt="image-20250423141940832" style="zoom:50%;" />
 
 
 
@@ -198,7 +200,7 @@ pre-receive：服务器接受推送前触发
 
 ##### git diff
 
-![image-20250423160752115](/Users/soup/Documents/2025年工作包/images/image-20250423160752115.png)
+![image-20250423160752115](../../images/image-20250423160752115.png)
 
 3-查看暂存区于本地仓库的区别
 
@@ -222,7 +224,7 @@ git add .						 // 工作区还有未提交的
 
 #### 4.4 远程仓库
 
-![image-20250424110021560](/Users/soup/Documents/2025年工作包/images/image-20250424110021560.png)
+![image-20250424110021560](../../images/image-20250424110021560.png)
 
 ##### git remote
 
@@ -232,7 +234,7 @@ git remote -v
 
 ##### git add remote gitee-soup https://gitee.com/readboy_soup/ai-learn-moblie-student.git
 
-添加远程地址，取名为gitee-soup，一般不取名字的话就会默认是origin![image-20250424154853432](/Users/soup/Documents/2025年工作包/images/image-20250424154853432.png)
+添加远程地址，取名为gitee-soup，一般不取名字的话就会默认是origin![image-20250424154853432](../../images/image-20250424154853432.png)
 
 可以指定push的远程仓库
 
@@ -250,7 +252,7 @@ git push gitee-soup
 
 查看某个远程仓库
 
-![image-20250424170117005](/Users/soup/Documents/2025年工作包/images/image-20250424170117005.png)
+![image-20250424170117005](../../images/image-20250424170117005.png)
 
 ##### git remote remove give-soup
 
@@ -296,13 +298,13 @@ git push gitee-soup
 
 创建新分支，HEAD指向当前所在的分支
 
-![image-20250425094130242](/Users/soup/Documents/2025年工作包/images/image-20250425094130242.png)
+![image-20250425094130242](../../images/image-20250425094130242.png)
 
 ##### git log --oneline -3
 
 查看HEAD指向
 
-![image-20250425094730920](/Users/soup/Documents/2025年工作包/images/image-20250425094730920.png)
+![image-20250425094730920](../../images/image-20250425094730920.png)
 
 ##### git switch test  === git checkout test
 
@@ -348,7 +350,7 @@ origin/test就是上游分支   upstream branch
 
 查看分支对应关系
 
-![image-20250426104643886](/Users/soup/Documents/2025年工作包/images/image-20250426104643886.png)
+![image-20250426104643886](../../images/image-20250426104643886.png)
 
 
 
@@ -358,7 +360,7 @@ git fetch 将远程更新到本地仓库
 
 git merge 合并的是本地仓库
 
-![image-20250426110529880](/Users/soup/Documents/2025年工作包/images/image-20250426110529880.png)
+![image-20250426110529880](../../images/image-20250426110529880.png)
 
 ##### git push origin --delete test
 
@@ -370,19 +372,19 @@ git merge 合并的是本地仓库
 
 跟merge的区别是，你在查看一个经过变基的分支的历史记录时会发现，尽管实际的开发工作是并行的， 但它们看上去就像是串行的一样，提交历史是一条直线没有分叉
 
-![image-20250426145528128](/Users/soup/Documents/2025年工作包/images/image-20250426145528128.png)
+![image-20250426145528128](../../images/image-20250426145528128.png)
 
 场景：
 
-<img src="/Users/soup/Documents/2025年工作包/images/image-20250426145623753.png" alt="image-20250426145623753" style="zoom:50%;" />
+<img src="../../images/image-20250426145623753.png" alt="image-20250426145623753" style="zoom:50%;" />
 
 - merge
 
-  <img src="/Users/soup/Documents/2025年工作包/images/image-20250426145645447.png" alt="image-20250426145645447" style="zoom:50%;" />
+  <img src="../../images/image-20250426145645447.png" alt="image-20250426145645447" style="zoom:50%;" />
 
 - rebase
 
-  <img src="/Users/soup/Documents/2025年工作包/images/image-20250426145704203.png" alt="image-20250426145704203" style="zoom:50%;" />
+  <img src="../../images/image-20250426145704203.png" alt="image-20250426145704203" style="zoom:50%;" />
 
 **了解就好了，还是用merge吧，除非什么小修改就用rebase**
 
@@ -394,7 +396,7 @@ git merge 合并的是本地仓库
 
 远程文件系统中有git仓库，只要用户授予权限就可以像gitlab一样去操作仓库数据了
 
-![image-20250426155403055](/Users/soup/Documents/2025年工作包/images/image-20250426155403055.png)
+![image-20250426155403055](../../images/image-20250426155403055.png)
 
 git clone /nfs/repo.git      # NFS 路径
 git clone //192.168.1.100/repo.git  # SMB 路径
