@@ -6,7 +6,7 @@
 
 可以加载资源
 
-![image-20250304170140268](/Users/soup/Library/Application Support/typora-user-images/image-20250304170140268.png)
+![image-20250304170140268](../../images/image-20250304170140268.png)
 
 import两种不同写法：
 
@@ -25,7 +25,7 @@ import两种不同写法：
 
 浏览器加载本地服务资源
 
-![image-20250304170815265](/Users/soup/Library/Application Support/typora-user-images/image-20250304170815265.png)
+![image-20250304170815265](../../images/image-20250304170815265.png)
 
 现代浏览器不支持es模块，但`某些现代浏览器和 Node.js 环境中，即使没有明确开启 ES 模块支持，也可以在特定情况下使用`
 
@@ -103,7 +103,7 @@ export function myFunction() {
 
    浏览器可以通过import按需请求文件，vite服务器可以实时编译
 
-   ![image-20250304145818106](/Users/soup/Library/Application Support/typora-user-images/image-20250304145818106.png)
+   ![image-20250304145818106](../../images/image-20250304145818106.png)
 
 3. 文件请求处理
 
@@ -130,19 +130,19 @@ export function myFunction() {
 
   当前页面
 
-  ![image-20250304164547060](/Users/soup/Library/Application Support/typora-user-images/image-20250304164547060.png)
+  ![image-20250304164547060](../../images/image-20250304164547060.png)
 
   页面资源显示
 
-  <img src="/Users/soup/Library/Application Support/typora-user-images/image-20250304164735491.png" alt="image-20250304164735491" style="zoom:67%;" />
+  <img src="../../images/image-20250304164735491.png" alt="image-20250304164735491" style="zoom:67%;" />
 
-  ![image-20250304165003821](/Users/soup/Library/Application Support/typora-user-images/image-20250304165003821.png)
+  ![image-20250304165003821](../../images/image-20250304165003821.png)
 
   
 
 - 可以观察到当切换tab的时候会动态加载component、嵌入的网页的资源
 
-- 开发环境![image-20250305101720915](/Users/soup/Library/Application Support/typora-user-images/image-20250305101720915.png)加上时间戳让浏览器觉得这是一个新的文件，重新请求，获取最新资源
+- 开发环境![image-20250305101720915](../../images/image-20250305101720915.png)加上时间戳让浏览器觉得这是一个新的文件，重新请求，获取最新资源
 
 
 

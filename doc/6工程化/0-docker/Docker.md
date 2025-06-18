@@ -131,7 +131,7 @@
 
 ### 2.6 多容器通信
 
-视频项目中的web项目需要一个count变量做缓存，依赖redis，于是docker中有两个容器![image-20250213112218587](/Users/soup/Library/Application Support/typora-user-images/image-20250213112218587.png)
+视频项目中的web项目需要一个count变量做缓存，依赖redis，于是docker中有两个容器![image-20250213112218587](../../images/image-20250213112218587.png)
 
 - 在docker中创建一个虚拟网络
 - 让redis和web项目使用同一个网络
@@ -173,7 +173,7 @@ volumes:
 docker-compose up
 ```
 
-![image-20250213113729253](/Users/soup/Library/Application Support/typora-user-images/image-20250213113729253.png)
+![image-20250213113729253](../../images/image-20250213113729253.png)
 
 运行完之后可以看到：一个容器有两个服务，这两个服务相互合作
 
@@ -183,7 +183,7 @@ docker-compose up
 
 - 发布：有官方docker免费的镜像仓库，或者阿里云自己的
 
-  ![image-20250213135635802](/Users/soup/Library/Application Support/typora-user-images/image-20250213135635802.png)
+  ![image-20250213135635802](../../images/image-20250213135635802.png)
 
   推送镜像到官方docker镜像仓库中
 
@@ -193,7 +193,7 @@ docker-compose up
   docker run -dp 9090:80 --name docker-web-container huangsiting/docker-web:v1    
   ```
 
-  ![image-20250213140625563](/Users/soup/Library/Application Support/typora-user-images/image-20250213140625563.png)
+  ![image-20250213140625563](../../images/image-20250213140625563.png)
 
 ## 3、思考
 
@@ -203,19 +203,19 @@ docker-compose up
 
 拉取镜像、安装、运行相当于以上操作，跟上面的操作没有区别，在本地操作系统用一个端口来跑这个服务，这里是使用本地操作系统的6379端口来跑redis服务，不会下载图形化界面，可以选择下载图形化界面软件，在安装完后需要链接到本地的服务，才能在图形化界面中操作这个服务。
 
-![image-20250207174434392](/Users/soup/Library/Application Support/typora-user-images/image-20250207174434392.png)
+![image-20250207174434392](../../images/image-20250207174434392.png)
 
 #### 3.2 可以用docker来做什么？
 
 答：1-可以通过docker快速安装应用。
 
-<img src="/Users/soup/Library/Application Support/typora-user-images/image-20250207175946607.png" alt="image-20250207175946607" style="zoom:90%;" />
+<img src="../../images/image-20250207175946607.png" alt="image-20250207175946607" style="zoom:90%;" />
 
 2-在开发业务中，本地应用上传到镜像仓库中，服务器就可以拉取镜像部署。
 
 #### 3.3 在2.3中，image和node、nginx的关系是什么
 
-![image-20250211173758565](/Users/soup/Library/Application Support/typora-user-images/image-20250211173758565.png)
+![image-20250211173758565](../../images/image-20250211173758565.png)
 
 docker相当于一个虚拟机，运行应用所需要的环境都需要在docker中配置
 
@@ -223,11 +223,11 @@ docker相当于一个虚拟机，运行应用所需要的环境都需要在docke
 
 公司使用的是阿里云的
 
-![image-20250213143142690](/Users/soup/Library/Application Support/typora-user-images/image-20250213143142690.png)
+![image-20250213143142690](../../images/image-20250213143142690.png)
 
 #### 3.5、 开发人员拉取项目，npm包失败是什么原因？
 
-![image-20250213162555878](/Users/soup/Library/Application Support/typora-user-images/image-20250213162555878.png)
+![image-20250213162555878](../../images/image-20250213162555878.png)
 
 假如项目是A开发的，她电脑上node环境是18，且ci文件配置的环境是node18，项目正常运行没问题，但是B的电脑node16，安装的某个包里面不再兼容node16了，所以下载失败，需要升级为node18，可以使用nvm进行node版本管理
 
@@ -245,7 +245,7 @@ ram用户登陆阿里云控制台
 
 - 阿里云：存放node镜像有很多种
 
-![image-20250213165902809](/Users/soup/Library/Application Support/typora-user-images/image-20250213165902809.png)
+![image-20250213165902809](../../images/image-20250213165902809.png)
 
 直接在阿里云镜像仓库中拉取需要的镜像，项目配置中直接指向这个镜像
 
@@ -253,15 +253,15 @@ ram用户登陆阿里云控制台
 
 - gitlab仓库镜像库
 
-![image-20250213170122226](/Users/soup/Library/Application Support/typora-user-images/image-20250213170122226.png)
+![image-20250213170122226](../../images/image-20250213170122226.png)
 
 ​	根据这个地址找到公司gitlab的基础建设仓库
 
-​	https://gitlab.dreamdev.cn/infrastructure![image-20250214120036443](/Users/soup/Library/Application Support/typora-user-images/image-20250214120036443.png)
+​	https://gitlab.dreamdev.cn/infrastructure![image-20250214120036443](../../images/image-20250214120036443.png)
 
-​	有nginx和node服务的镜像库![image-20250214120209690](/Users/soup/Library/Application Support/typora-user-images/image-20250214120209690.png)
+​	有nginx和node服务的镜像库![image-20250214120209690](../../images/image-20250214120209690.png)
 
-​	node里面就有指定的镜像版本![image-20250214120242338](/Users/soup/Library/Application Support/typora-user-images/image-20250214120242338.png)	
+​	node里面就有指定的镜像版本![image-20250214120242338](../../images/image-20250214120242338.png)	
 
 #### [**思考：公司是从阿里云的镜像仓库转到gitlab镜像仓库的，是出于什么考虑？**]()
 
@@ -269,20 +269,20 @@ ram用户登陆阿里云控制台
 
 - 构建docker指导部署运行项目
 
-  ![image-20250214144746546](/Users/soup/Library/Application Support/typora-user-images/image-20250214144746546.png)
+  ![image-20250214144746546](../../images/image-20250214144746546.png)
 
 - 编写ci文件
 
-  ![image-20250214145026411](/Users/soup/Library/Application Support/typora-user-images/image-20250214145026411.png)
+  ![image-20250214145026411](../../images/image-20250214145026411.png)
 
 ## 7、总结
 
-![image-20250213150802651](/Users/soup/Library/Application Support/typora-user-images/image-20250213150802651.png)
+![image-20250213150802651](../../images/image-20250213150802651.png)
 
 ## 8、常见docker命令
 
-![image-20250308104135215](/Users/soup/Library/Application Support/typora-user-images/image-20250308104135215.png)
+![image-20250308104135215](../../images/image-20250308104135215.png)
 
-![image-20250308104144942](/Users/soup/Library/Application Support/typora-user-images/image-20250308104144942.png)
+![image-20250308104144942](../../images/image-20250308104144942.png)
 
-![image-20250308104153279](/Users/soup/Library/Application Support/typora-user-images/image-20250308104153279.png)
+![image-20250308104153279](../../images/image-20250308104153279.png)

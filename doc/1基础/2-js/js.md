@@ -6,14 +6,7 @@
 
 - 看这个链接
 
-​		[阮一峰 ECMAScript 6 (ES6) 标准入门教程 第三版](https://www.bookstack.cn/books/es6-3rd)
-
-- 回答下图的问题![JavaScript面试题.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc9240467b46494ca8fdc2d35d9f729e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
-
-
-
-
-
+​		[阮一峰 ECMAScript 6 (ES6) 标准入门教程 第三版](https://www.bookstack.cn/books/es6-3rd)ß
 
 
 ## 1、js是一种单线程语言
@@ -27,7 +20,7 @@
 **事件循环流程**：
 同步代码 → 清空微任务队列 → 执行下一个宏任务 → 重复循环
 
-![image-20250305110304811](/Users/soup/Library/Application Support/typora-user-images/image-20250305110304811.png)
+![image-20250305110304811](./assets/image-20250305110304811.png)
 
 ## 3、解构赋值
 

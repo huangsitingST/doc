@@ -10,7 +10,7 @@ content delivery network
 
 - 网络组成
 
-  ![image-20250218110325653](/Users/soup/Library/Application Support/typora-user-images/image-20250218110325653.png)
+  ![image-20250218110325653](../../images/image-20250218110325653.png)
 
 - 网络架构
 
@@ -42,7 +42,7 @@ cdn是由全球多个服务器节点组成的网络，这些节点会缓存你�
 
 当用户访问你的网站时，**资源会从离用户最近的节点（而非你的原始服务器）加载**，从而显著加快速度。
 
-![image-20250218145032034](/Users/soup/Library/Application Support/typora-user-images/image-20250218145032034.png)
+![image-20250218145032034](../../images/image-20250218145032034.png)
 
 ## 三、cdn的工作原理
 
@@ -101,7 +101,7 @@ cdn是由全球多个服务器节点组成的网络，这些节点会缓存你�
 
  cdn将对源站的请求导向了距离用户较近的最优缓存节点，而非源站。（针对静态资源）
 
-![image-20250221100836770](/Users/soup/Library/Application Support/typora-user-images/image-20250221100836770.png)
+![image-20250221100836770](../../images/image-20250221100836770.png)
 
 GSLB：Global Server Load Balance 全局负载均衡服务器
 
@@ -111,7 +111,7 @@ SLB：Server Load Balance 对集群内物理主机的负载均衡
 
 ​	判断缓存集群中是否有用户请求的资源数据，如果有缓存，将**http请求重定向到最优的缓存节点**上 
 
-![image-20250221102803467](/Users/soup/Library/Application Support/typora-user-images/image-20250221102803467.png)
+![image-20250221102803467](../../images/image-20250221102803467.png)
 
 举🌰：
 
@@ -189,7 +189,7 @@ SLB：Server Load Balance 对集群内物理主机的负载均衡
 
 存在，边缘服务器有两种关联源服务器的方式，
 
-![image-20250218150453144](/Users/soup/Library/Application Support/typora-user-images/image-20250218150453144.png)
+![image-20250218150453144](../../images/image-20250218150453144.png)
 
 中间节点：位于区域中心，负责聚合多个边缘节点的请求
 
@@ -231,29 +231,29 @@ SLB：Server Load Balance 对集群内物理主机的负载均衡
 
 可以指定服务器的位置
 
-![image-20250218173313110](/Users/soup/Library/Application Support/typora-user-images/image-20250218173313110.png)
+![image-20250218173313110](../../images/image-20250218173313110.png)
 
 #### （2）总揽其中的一个空间：rbebagdata
 
-![image-20250219111931797](/Users/soup/Library/Application Support/typora-user-images/image-20250219111931797.png)
+![image-20250219111931797](../../images/image-20250219111931797.png)
 
 #### （3）进入到rbebagdata空间，查看到存储的所有文件
 
-![image-20250219103818036](/Users/soup/Library/Application Support/typora-user-images/image-20250219103818036.png)
+![image-20250219103818036](../../images/image-20250219103818036.png)
 
 可以查看到项目中用到的katex.js文件
 
 https://ziyuan.ebag.readboy.com/katex/0.16.7/katex.min.js
 
-![image-20250218162941013](/Users/soup/Library/Application Support/typora-user-images/image-20250218162941013.png)
+![image-20250218162941013](../../images/image-20250218162941013.png)
 
-![image-20250219104000896](/Users/soup/Library/Application Support/typora-user-images/image-20250219104000896.png)
+![image-20250219104000896](../../images/image-20250219104000896.png)
 
 #### （4）进入域名管理栏
 
 创建bucket后，七牛云会提供一个免费的测试地址可以访问，但是只有一个月试用期。测试正式环境需要有域名可以访问到这个bucket。
 
-![image-20250219110525220](/Users/soup/Library/Application Support/typora-user-images/image-20250219110525220.png)
+![image-20250219110525220](../../images/image-20250219110525220.png)
 
 有两种方式绑定：
 
@@ -265,13 +265,13 @@ https://ziyuan.ebag.readboy.com/katex/0.16.7/katex.min.js
 
   这里需要有域名，就需要去购买域名，根据域名后缀、服务、年限不同价格也会不一样
 
-  ![image-20250219110709032](/Users/soup/Library/Application Support/typora-user-images/image-20250219110709032.png)
+  ![image-20250219110709032](../../images/image-20250219110709032.png)
 
-  ![image-20250219110859663](/Users/soup/Library/Application Support/typora-user-images/image-20250219110859663.png)
+  ![image-20250219110859663](../../images/image-20250219110859663.png)
 
 #### （5）进入 ziyuan.ebag.readboy.com域名
 
-![image-20250219112611446](/Users/soup/Library/Application Support/typora-user-images/image-20250219112611446.png)
+![image-20250219112611446](../../images/image-20250219112611446.png)
 
 可以设置访问这个域名的一些配置，加速cdn访问
 
@@ -358,13 +358,13 @@ A记录的实例：
 
 看下公司的
 
-有个CNAME![image-20250220113752505](/Users/soup/Library/Application Support/typora-user-images/image-20250220113752505.png)
+有个CNAME![image-20250220113752505](../../images/image-20250220113752505.png)
 
 #### 1.5 拓展：操作绑定cdn域名
 
 假设我在阿里云上购买了域名example.cn，这个域名已经备好案了，它的多级域名就不用再备案了。我想用aa.example.cn这个域名去作为加速域名，加速访问七牛云上的bucket的资源
 
-![image-20250220164640151](/Users/soup/Library/Application Support/typora-user-images/image-20250220164640151.png)
+![image-20250220164640151](../../images/image-20250220164640151.png)
 
 这时候，七牛云厂商就会对这个aa.example.cn创建一条CNAME，需要在阿里云的域名列表中将aa.example.cn链接这个CNAME。
 
@@ -374,19 +374,19 @@ A记录的实例：
 
 ----------看下公司的域名
 
-公司在阿里云上有一个域名strongwind.cn![image-20250220170409954](/Users/soup/Library/Application Support/typora-user-images/image-20250220170409954.png)
+公司在阿里云上有一个域名strongwind.cn![image-20250220170409954](../../images/image-20250220170409954.png)
 
 这里配置的直接就是权威dns
 
-![image-20250221135649181](/Users/soup/Library/Application Support/typora-user-images/image-20250221135649181.png)
+![image-20250221135649181](../../images/image-20250221135649181.png)
 
-可以查看到在这个域名下，设置了很多 多级域名 作为A记录、CNAME![image-20250220170543776](/Users/soup/Library/Application Support/typora-user-images/image-20250220170543776.png)
+可以查看到在这个域名下，设置了很多 多级域名 作为A记录、CNAME![image-20250220170543776](../../images/image-20250220170543776.png)
 
-在七牛云中可以查到有很多这个域名的配置项![image-20250220170710187](/Users/soup/Library/Application Support/typora-user-images/image-20250220170710187.png)
+在七牛云中可以查到有很多这个域名的配置项![image-20250220170710187](../../images/image-20250220170710187.png)
 
-点进去rbebag-zy-test.strongwind.cn，在这个域名下就有这个七牛云给出的CNAME：iduz9e7.qiniudns.com![image-20250220170829180](/Users/soup/Library/Application Support/typora-user-images/image-20250220170829180.png)
+点进去rbebag-zy-test.strongwind.cn，在这个域名下就有这个七牛云给出的CNAME：iduz9e7.qiniudns.com![image-20250220170829180](../../images/image-20250220170829180.png)
 
-在阿里云的这个域名列表中就可以查到它的对应关系![image-20250220171025923](/Users/soup/Library/Application Support/typora-user-images/image-20250220171025923.png)
+在阿里云的这个域名列表中就可以查到它的对应关系![image-20250220171025923](../../images/image-20250220171025923.png)
 
 通过dig命令查找，当我访问rbebag-zy-test.strongwind.cn的时候，整一条dns的链路
 
@@ -394,7 +394,7 @@ A记录的实例：
 dig rbebag-zy-test.strongwind.cn
 ```
 
-![image-20250220171901171](/Users/soup/Library/Application Support/typora-user-images/image-20250220171901171.png)
+![image-20250220171901171](../../images/image-20250220171901171.png)
 
 1. rbebag-zy-test.strongwind.cn CNAME 到 iduz9e7.qiniudns.com
 
@@ -421,21 +421,21 @@ A记录是在DNS中的资源记录类型，域名对应ip4地址的这种映射�
 
 - css文件访问域名
 
-  ![image-20250225153007771](/Users/soup/Library/Application Support/typora-user-images/image-20250225153007771.png)
+  ![image-20250225153007771](../../images/image-20250225153007771.png)
 
 - js文件访问域名会不同
 
-  ![image-20250225153213246](/Users/soup/Library/Application Support/typora-user-images/image-20250225153213246.png)
+  ![image-20250225153213246](../../images/image-20250225153213246.png)
 
-  ![image-20250225153231045](/Users/soup/Library/Application Support/typora-user-images/image-20250225153231045.png)
+  ![image-20250225153231045](../../images/image-20250225153231045.png)
 
-  ![image-20250225153247997](/Users/soup/Library/Application Support/typora-user-images/image-20250225153247997.png)
+  ![image-20250225153247997](../../images/image-20250225153247997.png)
 
 - imge文件访问域名会不同
 
-  ![image-20250225153454375](/Users/soup/Library/Application Support/typora-user-images/image-20250225153454375.png)
+  ![image-20250225153454375](../../images/image-20250225153454375.png)
 
-  ![image-20250225153506264](/Users/soup/Library/Application Support/typora-user-images/image-20250225153506264.png)
+  ![image-20250225153506264](../../images/image-20250225153506264.png)
 
 解答：
 
@@ -465,7 +465,7 @@ A记录是在DNS中的资源记录类型，域名对应ip4地址的这种映射�
 
    添加cdn域名的时候，会有不同的策略，资源策略
 
-   ![image-20250225154758056](/Users/soup/Library/Application Support/typora-user-images/image-20250225154758056.png)
+   ![image-20250225154758056](../../images/image-20250225154758056.png)
 
    对于图片资源，可以使用专门的图片加速域名，并设置较长的缓存时间，减少图片的重复下载；
 
@@ -483,26 +483,26 @@ A记录是在DNS中的资源记录类型，域名对应ip4地址的这种映射�
 
 ### 2、在公司项目中，使用cdn和不使用cdn，看看获取资源的速度差异
 
-![image-20250219175424264](/Users/soup/Library/Application Support/typora-user-images/image-20250219175424264.png)
+![image-20250219175424264](../../images/image-20250219175424264.png)
 
 每个地址加载了三次平均数据显示
 
-- 源站图加载数据![image-20250219175653866](/Users/soup/Library/Application Support/typora-user-images/image-20250219175653866.png)
+- 源站图加载数据![image-20250219175653866](../../images/image-20250219175653866.png)
 
-  ![image-20250219175927854](/Users/soup/Library/Application Support/typora-user-images/image-20250219175927854.png)
+  ![image-20250219175927854](../../images/image-20250219175927854.png)
 
   到20.2秒完成加载
 
 - cdn加速访问
 
-  ![image-20250219180148221](/Users/soup/Library/Application Support/typora-user-images/image-20250219180148221.png)
+  ![image-20250219180148221](../../images/image-20250219180148221.png)
 
-  ![image-20250219180246816](/Users/soup/Library/Application Support/typora-user-images/image-20250219180246816.png)
+  ![image-20250219180246816](../../images/image-20250219180246816.png)
 
   到18.7秒完成加载
 
 ### 3、使用阿里云的oss存储自己操作一个bucket
 
-![image-20250219152839716](/Users/soup/Library/Application Support/typora-user-images/image-20250219152839716.png)
+![image-20250219152839716](../../images/image-20250219152839716.png)
 
 申请域名好麻烦就不搞了

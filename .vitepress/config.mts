@@ -11,7 +11,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      {text: "首页", link: '/link.md'},
+      { text: "首页", link: "/link.md" },
       { text: "README", link: "/doc/README.md" },
       { text: "文档", link: "/doc/6工程化/3-nginx/Nginx-上.md" },
     ],
@@ -22,6 +22,69 @@ export default defineConfig({
         items: [
           { text: "Nginx-上", link: "/doc/6工程化/3-nginx/Nginx-上.md" },
           { text: "Nginx-下", link: "/doc/6工程化/3-nginx/Nginx-下.md" },
+
+          {
+            text: "部署一套gitlab实现ci流水线",
+            link: "/doc/2框架/2-git/部署一套gitlab实现ci流水线.md",
+          },
+
+          {
+            text: "git",
+            link: "/doc/2框架/2-git/git.md",
+          },
+          {
+            text: "docker",
+            link: "/doc/6工程化/0-docker/Docker.md",
+          },
+          {
+            text: "CICD",
+            link: "/doc/6工程化/1-cicd/CICD.md",
+          },
+          {
+            text: "node",
+            link: "/doc/6工程化/4-node/node.md",
+          },
+          {
+            text: "cdn",
+            link: "/doc/6工程化/6-cdn/CDN.md",
+          },
+        ],
+      },
+      {
+        text: "vue生态学习",
+        items: [
+          {
+            text: "从零开始搭建一个vue",
+            link: "/doc/2框架/1-vue/0-从零开始搭建一个vue.md",
+          },
+          { text: "vite文档学习", link: "/doc/2框架/0-vite/文档学习.md" },
+          {
+            text: "vue学习",
+            link: "/doc/2框架/1-vue/2-vue学习.md",
+          },
+          {
+            text: "vue-router",
+            link: "/doc/2框架/1-vue/1-vue-router.md",
+          },
+        ],
+      },
+      {
+        text: "项目总结",
+        items: [
+          { text: "爱学网app", link: "/doc/4项目业务/0-项目点/爱学网app.md" },
+          {
+            text: "开发中遇到的问题",
+            link: "/doc/4项目业务/1-技术点/开发中遇到的问题.md",
+          },
+          { text: "micro-app", link: "/doc/4项目业务/2-项目学习/micro-app.md" },
+        ],
+      },
+      {
+        text: "基础",
+        items: [
+          { text: "js", link: "/doc/1基础/2-js/js.md" },
+          { text: "html", link: "/doc/1基础/1-html/html.md" },
+          { text: "css", link: "/doc/1基础/0-css/css.md" },
         ],
       },
     ],

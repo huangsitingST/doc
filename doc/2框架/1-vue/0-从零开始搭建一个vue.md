@@ -4,7 +4,7 @@
 
 https://www.bilibili.com/video/BV1dt4y1K7BF?spm_id_from=333.788.player.switch&vd_source=dde64d07ecb0f5155b9ee44781f029a0
 
-![image-20250303205210917](/Users/soup/Library/Application Support/typora-user-images/image-20250303205210917.png)
+![image-20250303205210917](../../images/image-20250303205210917.png)
 
 ## 1、SFC
 
@@ -88,21 +88,21 @@ vue作为一个当页面应用，配置完vue-router后，路由的变化会由�
 
 ### 5.3 懒加载
 
-- 不使用懒加载，直接导入组件![image-20250225112127986](/Users/soup/Library/Application Support/typora-user-images/image-20250225112127986.png)
+- 不使用懒加载，直接导入组件![image-20250225112127986](../../images/image-20250225112127986.png)
 
   打包后只有一个js文件
 
-  ![image-20250225112215594](/Users/soup/Library/Application Support/typora-user-images/image-20250225112215594.png)
+  ![image-20250225112215594](../../images/image-20250225112215594.png)
 
   运行开发环境：npm run dev的时候，首次加载页面就会加载所有的组件
 
-  ![image-20250225112340047](/Users/soup/Library/Application Support/typora-user-images/image-20250225112340047.png)
+  ![image-20250225112340047](../../images/image-20250225112340047.png)
 
-- 使用懒加载：在访问到文件的时候才去加载组件![image-20250225112531666](/Users/soup/Library/Application Support/typora-user-images/image-20250225112531666.png)
+- 使用懒加载：在访问到文件的时候才去加载组件![image-20250225112531666](../../images/image-20250225112531666.png)
 
   打包项目，发现会有懒加载的组件对应的js和css文件
 
-  ![image-20250225112610350](/Users/soup/Library/Application Support/typora-user-images/image-20250225112610350.png)
+  ![image-20250225112610350](../../images/image-20250225112610350.png)
 
   运行开发环境：npm run dev的时候，访问到Eggs.vue组件的时候才去加载Eggs.vue的js文件和css文件
 

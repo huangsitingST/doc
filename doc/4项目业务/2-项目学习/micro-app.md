@@ -51,7 +51,7 @@ https://cangdu.org/micro-app/docs.html#/
 
 - iframe沙箱
 
-  利用浏览器原生的<iframe>标签创建物理隔离的独立上下文，子应用拥有独立的window、document和全局对象
+  利用浏览器原生的iframe标签创建物理隔离的独立上下文，子应用拥有独立的window、document和全局对象
 
 ![image-20250617174742846](./assets/image-20250617174742846.png)
 
@@ -142,7 +142,6 @@ microApp.addDataListener('child-app', (data) => {
 })
 
 ```
-
 
 
 ## 3、如何通信

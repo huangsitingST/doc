@@ -111,7 +111,7 @@ https://rbebag-zy-test.strongwind.cn/ai-learn-pc/2025219/index.html
 
 2. 刷新页面之后，会报这个错误
 
-   ![image-20250225145330317](/Users/soup/Library/Application Support/typora-user-images/image-20250225145330317.png)
+   ![image-20250225145330317](../../images/image-20250225145330317.png)
 
 3. 进入到这个index.htmlvue应用会根据createWebHistory转向登陆页面
 
@@ -174,11 +174,11 @@ git中，ssh主要用于安全地连接远程代码仓库，通过ssh密钥认�
 
   在根目录的ssh文件夹中，命令 ～/.ssh
 
-  ![image-20250222115313794](/Users/soup/Library/Application Support/typora-user-images/image-20250222115313794.png)
+  ![image-20250222115313794](../../images/image-20250222115313794.png)
 
   将公钥配置到gitlab中就可以配置完成了
 
-  ![image-20250222115510933](/Users/soup/Library/Application Support/typora-user-images/image-20250222115510933.png)
+  ![image-20250222115510933](../../images/image-20250222115510933.png)
 
   如果是服务端，这里会有另一个文件，authorized_keys，用来存放连接客户端的公钥
 
@@ -194,7 +194,7 @@ git中，ssh主要用于安全地连接远程代码仓库，通过ssh密钥认�
   2. 后续再连接同一主机时，客户端就会将新获取的主机公钥匙与`known_hosts` 文件中存储的公钥进行比对
   3. 如果两者匹配，则认为连接是安全的；如果不匹配，客户端会发出警告，提示你可能存在安全风险，因为这可能意味着主机的身份发生了变化或者存在中间人攻击
 
-  ![image-20250222134434209](/Users/soup/Library/Application Support/typora-user-images/image-20250222134434209.png)
+  ![image-20250222134434209](../../images/image-20250222134434209.png)
 
 ### 3.3 公钥和私钥
 
@@ -207,15 +207,15 @@ git中，ssh主要用于安全地连接远程代码仓库，通过ssh密钥认�
 
 - 数据加密传输：获取对方服务器保护的数据
 
-  ![image-20250222140332457](/Users/soup/Library/Application Support/typora-user-images/image-20250222140332457.png)
+  ![image-20250222140332457](../../images/image-20250222140332457.png)
 
 - 数字签名：验证数据的来源和完整性
 
-  ![image-20250222140755053](/Users/soup/Library/Application Support/typora-user-images/image-20250222140755053.png)
+  ![image-20250222140755053](../../images/image-20250222140755053.png)
 
 - **`身份验证：SSH身份验证`**
 
-  ![image-20250222141414443](/Users/soup/Library/Application Support/typora-user-images/image-20250222141414443.png)
+  ![image-20250222141414443](../../images/image-20250222141414443.png)
 
 ### 3.4 连接远程服务器的两种协议
 
@@ -238,7 +238,7 @@ git中，ssh主要用于安全地连接远程代码仓库，通过ssh密钥认�
 
 job >> stage >> pipeline
 
-![image-20250227171253742](/Users/soup/Library/Application Support/typora-user-images/image-20250227171253742.png)
+![image-20250227171253742](../../images/image-20250227171253742.png)
 
 ### 4.1 job（任务）：任务是流水线的最小执行单元，定义了具体的操作（如运行脚本、编译代码、执行测试）
 
@@ -300,11 +300,11 @@ deploy_job:
 
 公司的gitlab计划版本
 
-<img src="/Users/soup/Library/Application Support/typora-user-images/image-20250227101856423.png" alt="image-20250227101856423" style="zoom:50%;" />
+<img src="../../images/image-20250227101856423.png" alt="image-20250227101856423" style="zoom:50%;" />
 
 #### 4.4.3 runner分类
 
-![image-20250227142821651](/Users/soup/Library/Application Support/typora-user-images/image-20250227142821651.png)
+![image-20250227142821651](../../images/image-20250227142821651.png)
 
 - gitlab.com版本的shared runner由官网提供，自己也可以配置specific runner和group runner
 
@@ -318,11 +318,11 @@ deploy_job:
 
 公司的runner状态
 
-![image-20250227143215038](/Users/soup/Library/Application Support/typora-user-images/image-20250227143215038.png)
+![image-20250227143215038](../../images/image-20250227143215038.png)
 
 #39是公司项目的公用runner
 
-![image-20250227143410618](/Users/soup/Library/Application Support/typora-user-images/image-20250227143410618.png)
+![image-20250227143410618](../../images/image-20250227143410618.png)
 
 #### 事故！！
 
@@ -405,7 +405,7 @@ job:
 
 分类总结图
 
-![image-20250227140452945](/Users/soup/Library/Application Support/typora-user-images/image-20250227140452945.png)
+![image-20250227140452945](../../images/image-20250227140452945.png)
 
 gitlab有两种版本：
 
@@ -413,13 +413,13 @@ gitlab有两种版本：
 
   有三种计划，每种版本中又有社区版和企业版
 
-  ![image-20250226175016229](/Users/soup/Library/Application Support/typora-user-images/image-20250226175016229.png)
+  ![image-20250226175016229](../../images/image-20250226175016229.png)
 
 - **自托管 GitLab**：用户在自己的服务器或云环境中部署
 
   公司使用的是`自托管gitlab`
 
-  ![image-20250227144940663](/Users/soup/Library/Application Support/typora-user-images/image-20250227144940663.png)
+  ![image-20250227144940663](../../images/image-20250227144940663.png)
 
   使用方便好记的域名：https://gitlab.dreamdev.cn/
 
@@ -463,7 +463,7 @@ https://aixue.readboy.com/ai-learn-pc/login
 
 加载七牛云的配置文件
 
-![image-20250224104623478](/Users/soup/Library/Application Support/typora-user-images/image-20250224104623478.png)
+![image-20250224104623478](../../images/image-20250224104623478.png)
 
 ### 3、操作一下使用ci部署一套全流程可以访问网站
 

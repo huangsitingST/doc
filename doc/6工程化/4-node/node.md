@@ -58,7 +58,7 @@ console.log(count1.count()); // 3
 console.log(count === count1); // true
 ```
 
-![image-20250305115142558](/Users/soup/Library/Application Support/typora-user-images/image-20250305115142558.png)
+![image-20250305115142558](../../images/image-20250305115142558.png)
 
 ## 3、模块路径解析规则
 
@@ -83,7 +83,7 @@ Window写法：NODE_PATH环境变量：
 
 模块化
 
-![image-20250305150241455](/Users/soup/Library/Application Support/typora-user-images/image-20250305150241455.png)
+![image-20250305150241455](../../images/image-20250305150241455.png)
 
 package.json
 
@@ -105,7 +105,7 @@ test.js执行这个require的时候会进入到counter这个文件夹，然后�
 
 看下axios的结构
 
-![image-20250305150645076](/Users/soup/Library/Application Support/typora-user-images/image-20250305150645076.png)
+![image-20250305150645076](../../images/image-20250305150645076.png)
 
 ## 5、npm
 
@@ -119,9 +119,9 @@ test.js执行这个require的时候会进入到counter这个文件夹，然后�
 
    npm install argv
 
-   ![image-20250305155816799](/Users/soup/Library/Application Support/typora-user-images/image-20250305155816799.png)这个文件就可以管理所有的包
+   ![image-20250305155816799](../../images/image-20250305155816799.png)这个文件就可以管理所有的包
 
-   ![image-20250305160152791](/Users/soup/Library/Application Support/typora-user-images/image-20250305160152791.png)安装的包如果也依赖其他包的话就会有自己的node_modules，package.json的dependences也会有定义
+   ![image-20250305160152791](../../images/image-20250305160152791.png)安装的包如果也依赖其他包的话就会有自己的node_modules，package.json的dependences也会有定义
 
 2. 安装命令行程序
 
@@ -208,7 +208,7 @@ server.addContext('bar.com', {
 
 ### 7.1 url
 
-![image-20250306105047359](/Users/soup/Library/Application Support/typora-user-images/image-20250306105047359.png)
+![image-20250306105047359](../../images/image-20250306105047359.png)
 
 ### 7.2 socket
 
@@ -264,7 +264,7 @@ server.addContext('bar.com', {
 
   用UTF编码的文件可能带有BOM，这个是可以标记这个文件unicode编码模式
 
-  ![image-20250305185907093](/Users/soup/Library/Application Support/typora-user-images/image-20250305185907093.png)
+  ![image-20250305185907093](../../images/image-20250305185907093.png)
 
   1. **UTF-8**：可变长度（1-4 字节）
 
@@ -274,13 +274,13 @@ server.addContext('bar.com', {
 
 ### 6、乱码现象是如何产生的？
 
-![image-20250305190621136](/Users/soup/Library/Application Support/typora-user-images/image-20250305190621136.png)
+![image-20250305190621136](../../images/image-20250305190621136.png)
 
-![image-20250305190629109](/Users/soup/Library/Application Support/typora-user-images/image-20250305190629109.png)
+![image-20250305190629109](../../images/image-20250305190629109.png)
 
-![image-20250305190652269](/Users/soup/Library/Application Support/typora-user-images/image-20250305190652269.png)
+![image-20250305190652269](../../images/image-20250305190652269.png)
 
-![image-20250305190658480](/Users/soup/Library/Application Support/typora-user-images/image-20250305190658480.png)
+![image-20250305190658480](../../images/image-20250305190658480.png)
 
 ### 7、node的http模块创建的http服务器返回的响应是transfer-encoding:chunked方式传输的？
 
