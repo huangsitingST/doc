@@ -5,12 +5,13 @@ console.log(1212, process.env.NODE_ENV);
 
 export default defineConfig({
   // base: getBaseURL(),
-  base: process.env.NODE_ENV === 'production' ? '/doc/' : '/',
+  base: process.env.NODE_ENV === "production" ? "/doc/" : "/",
   title: "个人学习阅读文档",
   description: "A VitePress Site21",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
+      {text: "首页", link: '/link.md'},
       { text: "README", link: "/doc/README.md" },
       { text: "文档", link: "/doc/6工程化/3-nginx/Nginx-上.md" },
     ],
@@ -44,17 +45,16 @@ export default defineConfig({
     // "http/请求头.md",
     // "vite/",
     // "项目总结/",
-     '**/2框架/**',
-     '**/4项目业务/**',
-     '**/5计算机网络/**',
-     '**/6工程化/0-docker/**',
-     '**/6工程化/1-*/**',
-     '**/6工程化/4-*/**',
-     '**/6工程化/5-*/**',
-     '**/6工程化/6-*/**',
-     '**/6工程化/7-*/**',
-     '**/6工程化/8-*/**',
-     '**/6工程化/9-*/**',
+    "**/2框架/**",
+    "**/4项目业务/**",
+    "**/5计算机网络/**",
+    "**/6工程化/0-docker/**",
+    "**/6工程化/1-*/**",
+    "**/6工程化/4-*/**",
+    "**/6工程化/5-*/**",
+    "**/6工程化/6-*/**",
+    "**/6工程化/7-*/**",
+    "**/6工程化/8-*/**",
+    "**/6工程化/9-*/**",
   ],
-  
 });
