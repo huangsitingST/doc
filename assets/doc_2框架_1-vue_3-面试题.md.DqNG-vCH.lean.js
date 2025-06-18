@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.DD4G2i-B.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"doc/2框架/1-vue/3-面试题.md","filePath":"doc/2框架/1-vue/3-面试题.md"}'),o={name:"doc/2框架/1-vue/3-面试题.md"};function c(r,s,_,n,d,p){return a(),t("div")}const f=e(o,[["render",c]]);export{m as __pageData,f as default};
