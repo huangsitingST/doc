@@ -49,24 +49,24 @@ export default defineConfig({
           // },
         ],
       },
-      // {
-      //   text: "vue生态学习",
-      //   items: [
-      //     {
-      //       text: "从零开始搭建一个vue",
-      //       link: "/doc/2框架/1-vue/0-从零开始搭建一个vue.md",
-      //     },
-      //     { text: "vite文档学习", link: "/doc/2框架/0-vite/文档学习.md" },
-      //     {
-      //       text: "vue学习",
-      //       link: "/doc/2框架/1-vue/2-vue学习.md",
-      //     },
-      //     {
-      //       text: "vue-router",
-      //       link: "/doc/2框架/1-vue/1-vue-router.md",
-      //     },
-      //   ],
-      // },
+      {
+        text: "vue生态学习",
+        items: [
+          {
+            text: "从零开始搭建一个vue",
+            link: "/doc/2框架/1-vue/0-从零开始搭建一个vue.md",
+          },
+          { text: "vite文档学习", link: "/doc/2框架/0-vite/文档学习.md" },
+          {
+            text: "vue学习",
+            link: "/doc/2框架/1-vue/2-vue学习.md",
+          },
+          {
+            text: "vue-router",
+            link: "/doc/2框架/1-vue/1-vue-router.md",
+          },
+        ],
+      },
       {
         text: "项目总结",
         items: [
